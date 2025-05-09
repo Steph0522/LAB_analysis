@@ -1,0 +1,42 @@
+---
+title: 'LAB analysis'
+subtitle: "![](img/Banner.jpg)"
+author: ""
+site: bookdown::bookdown_site
+documentclass: book
+url: 'https://microbioma-lab.com/'
+github-repo: "https://github.com/microbioma-lab/"
+output:
+ bookdown::gitbook:
+  toc_depth: 3 
+  config:
+    sharing: null
+editor_options: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+link-citations: yes
+---
+
+```{r knitr_opts, echo=FALSE}
+knitr::opts_chunk$set(
+  class.source = "script-source",
+  class.output = "script-output",
+  comment = NA
+)
+```
+
+
+#  `r fontawesome::fa("book", fill=" #4141f7")`  Descripción {-}
+
+Este bookdown contiene pasos y detalles a considerar en el análisis de genomas de bacterias acidolácticas (LAB) de Microbioma - Lab.
+
+-   Página web:
+    <https://microbioma-lab.com/inicio/>
+
+-    O escríbenos a:
+    [contacto\@microbioma-lab.com](mailto:contacto@microbioma-lab.com){.email}
+    
+## Aviso Legal: Protección de Propiedad Intelectual. {-}
+
+El material contenido en este manual está protegido por las leyes mexicanas de Propiedad Intelectual. Por lo que su reproducción o distribución no autorizada con fines de lucro está prohibida.

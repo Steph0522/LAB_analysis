@@ -1,0 +1,21 @@
+bookdown::gitbook:
+  self_contained: true
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li class="toc-logo"><img src="logo.png" alt="Microbioma Lab"></li>
+        <li align="center"><b>MANUAL DE ANALISIS DE LAB</b></li>
+      after: |
+        <li><a href="https://microbioma-lab.com/" target="blank"><b>Microbioma Lab</b></a></li>
+        <li><a href="https://microbioma-lab.com/inicio/cursos-de-microbioma_y_bioinformatica/" target="blank"><b>Cursos de bioinformática</b></a></li>
+        <li><a href="https://microbioma-lab.com/inicio/catalogo-de-productos-y-servicios/" target="blank"><b>Catálogo de productos</b></a></li>
+    download: ["pdf", "epub"]
+  fig_width: 8
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

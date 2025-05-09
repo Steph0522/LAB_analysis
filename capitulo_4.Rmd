@@ -1,0 +1,83 @@
+---
+bibliography: references.bib
+---
+
+![](img/foot.jpeg)
+
+# `r fontawesome::fa("book", fill=" #4141f7")` : Mapeo contra genoma de referencia
+
+![](img/Banner.jpg)
+**Este paso es opcional y depende de qué es lo que se quiere comparar o el objetivo del estudio a realizar.**
+
+Si queremos identificar los cambios ocurridos con la cepa mejorada.
+
+Hay dos enfoques posibles:
+
+- Ensamblar un segundo genoma y compararlo con el genoma ancestral.
+
+- Mapear las lecturas del mejorado directamente contra el genoma ensamblado del ancestral y luego identificar las variantes.
+
+La primera opción no es recomendable porque:
+
+- Es computacionalmente más costosa y consume más recursos.
+
+- No proporciona una medida clara de la certeza de los cambios detectados.
+
+Por eso, se opta por el segundo enfoque, conocido como llamado de variantes (variant calling).
+
+En este proceso, se utilizan las lecturas de Illumina del mejorado previamente filtradas con fastp y se mapean contra el genoma de referencia usando BWA. Luego, se identifican las mutaciones para evaluar los cambios evolutivos.
+
+
+```{bash, eval=FALSE}
+$ conda create --yes -n mapping samtools bwa qualimap r-base
+$ conda activate mapping
+
+# bwa index help
+$ bwa index
+
+# indexing
+$ bwa index path/to/reference-genome.fa
+
+# bwa mem help
+$ bwa mem
+
+# single-end mapping, general command structure, adjust to your case
+$ bwa mem path/to/reference-genome.fa path/to/reads.fq.gz > path/to/aln-se.sam
+
+# paired-end mapping, general command structure, adjust to your case
+$ bwa mem path/to/reference-genome.fa path/to/read1.fq.gz path/to/read2.fq.gz > path/to/aln-pe.sam
+
+$ samtools sort -n -O sam mappings/evol1.sam | samtools fixmate -m -O bam - mappings/evol1.fixmate.bam
+
+$ rm mappings/evol1.sam
+
+# convert to bam file and sort
+$ samtools sort -O bam -o mappings/evol1.sorted.bam mappings/evol1.fixmate.bam
+
+# Once it successfully finished, delete the fixmate file to save space
+$ rm mappings/evol1.fixmate.bam
+
+
+$ samtools markdup -r -S mappings/evol1.sorted.bam mappings/evol1.sorted.dedup.bam
+
+# if it worked, delete the original file
+$ rm mappings/evol1.sorted.bam
+
+
+$ samtools flagstat mappings/evol1.sorted.dedup.bam
+
+$ samtools depth mappings/evol1.sorted.dedup.bam | gzip > mappings/evol1.depth.txt.gz
+
+$ zcat mappings/evol1.depth.txt.gz | egrep '^NODE_20_' | gzip >  mappings/NODE_20.depth.txt.gz
+
+#stats
+
+$ qualimap bamqc -bam mappings/evol1.sorted.dedup.bam
+# Once finsished open reult page with
+$ firefox mappings/evol1.sorted.dedup_stats/qualimapReport.html
+
+
+$ samtools view -h -b -q 20 mappings/evol1.sorted.dedup.bam > mappings/evol1.sorted.dedup.q20.bam
+
+```
+

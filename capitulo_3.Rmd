@@ -1,0 +1,40 @@
+---
+bibliography: references.bib
+---
+
+![](img/foot.jpeg)
+
+# `r fontawesome::fa("book", fill=" #4141f7")` : Ensamble de genoma
+
+![](img/Banner.jpg)
+
+Luego de haber filtrado los genomas y revisado la calidad de las secuencias crudas, lo siguiente es hacer el ensamble.
+
+
+```{bash, eval =FALSE}
+$ conda create -n assembly spades quast
+$ conda activate assembly
+$ spades.py -o result-directory -1 read1.fastq.gz -2 read2.fastq.gz
+
+```
+
+
+Después de obtenido el ensamble debe analizarse la calidad del ensamble con quast.
+
+```{bash, eval =FALSE}
+$ quast -o assembly/quast assembly/spades-default/scaffolds.fasta assembly/spades-150/scaffolds.fasta
+
+```
+
+N50: longitud para la cual la suma de todos los contigs de esa longitud o mayor cubre al menos el 50% del ensamblaje.
+
+NG50: similar a N50, pero considerando la longitud del genoma de referencia en lugar del ensamblaje.
+
+NA50 y NGA50: similares a N50 y NG50, pero considerando bloques alineados en lugar de contigs.
+
+Miss-assemblies: contigs mal ensamblados o bases no alineadas.
+
+Genes y operones cubiertos: cantidad de genes y operones presentes en el ensamblaje en comparación con el genoma de referencia.
+
+
+

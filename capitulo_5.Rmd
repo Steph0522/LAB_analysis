@@ -1,0 +1,29 @@
+---
+bibliography: references.bib
+---
+
+![](img/foot.jpeg)
+
+
+# `r fontawesome::fa("book", fill=" #4141f7")` : Identificación taxonómica
+```{=html}
+<link href="
+https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css
+" rel="stylesheet">
+```
+
+![](img/Banner.jpg)
+
+```{bash, eval=FALSE}
+$ conda create --yes -n kraken kraken2 bracken
+$ conda activate kraken
+
+$ kraken2 --use-names --threads 4 --db PATH_TO_DB_DIR --report example.report.txt example.fa > example.kraken
+
+$ kraken2 --use-names --threads 4 --db minikraken2_v2_8GB_201904_UPDATE --fastq-input --report evol1 --gzip-compressed --paired ../mappings/evol1.sorted.unmapped.R1.fastq.gz ../mappings/evol1.sorted.unmapped.R2.fastq.gz > evol1.kraken
+
+
+$ bracken -d PATH_TO_DB_DIR -i kraken2.report -o bracken.species.txt -l S
+
+```
+
