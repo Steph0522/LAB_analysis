@@ -1964,84 +1964,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
-<style type="text/css">p.caption {
-color: #555;
-margin-top: 10px;
-}
-p code {
-white-space: inherit;
-}
-pre {
-word-break: normal;
-word-wrap: normal;
-}
-pre code {
-white-space: inherit;
-}
-.header-section-number{
-color: #1A4E9E;
-}
-
-
-.book .book-body .page-wrapper .page-inner section.normal a {
-color: #58B1E3;
-}
-.book .book-body .page-wrapper .page-inner section.normal a:hover {
-color: #1A4E9E; 
-text-decoration: none;
-}
-
-.book .book-summary ul.summary li a:link {
-color: #444444;
-}
-.book .book-summary ul.summary li a:visited {
-color: #444444;
-}
-.book .book-summary ul.summary li a:hover {
-color: #526AB0; 
-text-decoration: none;
-}
-.book .book-summary ul.summary li.active>a { 
-color: #1A4E9E !important;
-font-weight: bold;
-}
-
-.toc-logo {
-width: 230px !important;
-object-fit: contain;
-margin: 0 auto;
-display: block;
-}
-.toc-logo img {
-max-width: 100%;
-margin-top: 10px;
-}
-.summary > li:first-child {
-height: auto !important;
-}
-
-.script-source {
-font-weight: bold !important;
-border-left: 3px solid #58B1E3 !important;
-}
-.script-output {
-background-color: #ffffff !important;
-}
-
-uw-blockquote {
-display: block;
-margin-top: 1em;
-margin-bottom: 1em;
-margin-left: 40px;
-margin-right: 40px;
-border-left: solid 20px #58b0e3;
-background-color: #dadfe1	;
-padding: 1em;
-color: #000000;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-}
-</style>
+<style type="text/css">p.caption {color: #555;margin-top: 10px;}p code {white-space: inherit;}pre {word-break: normal;word-wrap: normal;}pre code {white-space: inherit;}.header-section-number{color: #1A4E9E;}.book .book-body .page-wrapper .page-inner section.normal a {color: #58B1E3;}.book .book-body .page-wrapper .page-inner section.normal a:hover {color: #1A4E9E; text-decoration: none;}.book .book-summary ul.summary li a:link {color: #444444;}.book .book-summary ul.summary li a:visited {color: #444444;}.book .book-summary ul.summary li a:hover {color: #526AB0; text-decoration: none;}.book .book-summary ul.summary li.active>a { color: #1A4E9E !important;font-weight: bold;}.toc-logo {width: 230px !important;object-fit: contain;margin: 0 auto;display: block;}.toc-logo img {max-width: 100%;margin-top: 10px;}.summary > li:first-child {height: auto !important;}.script-source {font-weight: bold !important;border-left: 3px solid #58B1E3 !important;}.script-output {background-color: #ffffff !important;}uw-blockquote {display: block;margin-top: 1em;margin-bottom: 1em;margin-left: 40px;margin-right: 40px;border-left: solid 20px #58b0e3;background-color: #dadfe1	;padding: 1em;color: #000000;-moz-border-radius: 5px;-webkit-border-radius: 5px;}</style>
 </head>
 
 <body>
@@ -2138,14 +2061,14 @@ Algunos pasos deben realizarse antes de poder usar las secuencias crudas recibid
 <span id="cb1-9"><a href="control-de-calidad.html#cb1-9" tabindex="-1"></a>        <span class="ex">-i</span> data/anc_R1.fastq.gz <span class="at">-I</span> data/anc_R2.fastq.gz</span>
 <span id="cb1-10"><a href="control-de-calidad.html#cb1-10" tabindex="-1"></a>        <span class="ex">-o</span> trimmed/anc_R1.fastq.gz <span class="at">-O</span> trimmed/anc_R2.fastq.gz</span>
 <span id="cb1-11"><a href="control-de-calidad.html#cb1-11" tabindex="-1"></a>        </span></code></pre></div>
-<p>–detect_adapter_for_pe: Specifies that we are dealing with paired-end data.</p>
-<p>–overrepresentation_analysis: Analyse the sequence collection for sequences that appear too often.</p>
-<p>–correction: Will try to correct bases based on an overlap analysis of read1 and read2.</p>
-<p>–cut_right: Will use quality trimming and scan the read from start to end in a window. If the quality in the window is below what is required, the window plus all sequence towards the end is discarded and the read is kept if its still long enough.</p>
+<p>-detect_adapter_for_pe: Especifica que estamos usando paired-end data.</p>
+<p>–overrepresentation_analysis: Analiza las secuencas sobre-representadas.</p>
+<p>–correction: tratará de corregir las bases basadas en un análisis de overlap de reads1 y reads2.</p>
+<p>–cut_right: usará el recorte el scan de recorte de calidad desde el inicio al final.</p>
 <p>–thread: Specify how many concurrent threads the process can use.</p>
-<p>–html and –json: We specify the location of some stat files.</p>
-<p>-i data/anc_R1.fastq.gz -I data/anc_R2.fastq.gz: Specifies the two input read files</p>
-<p>-o trimmed/anc_R1.fastq.gz -O trimmed/anc_R2.fastq.gz: Specifies the two desired output read files</p>
+<p>–html and –json: Especificamos la ubicación de archivo de stats.</p>
+<p>-i data/anc_R1.fastq.gz -I data/anc_R2.fastq.gz: Especifica los dos archivos de entrada.</p>
+<p>-o trimmed/anc_R1.fastq.gz -O trimmed/anc_R2.fastq.gz: SpEspecifica los dos archivos de salida.</p>
 </div>
 <div id="fastqc" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> fastqc<a href="control-de-calidad.html#fastqc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -3153,32 +3076,32 @@ jQuery.fn.highlight = function (words, options) {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": null,
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": null,
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -41,21 +41,21 @@ $ fastp --detect_adapter_for_pe
         
 ```
 
---detect_adapter_for_pe: Specifies that we are dealing with paired-end data.
+-detect_adapter_for_pe: Especifica que estamos usando paired-end data.
 
---overrepresentation_analysis: Analyse the sequence collection for sequences that appear too often.
+--overrepresentation_analysis: Analiza las secuencas sobre-representadas.
 
---correction: Will try to correct bases based on an overlap analysis of read1 and read2.
+--correction: tratará de corregir las bases basadas en un análisis de overlap de reads1 y reads2.
 
---cut_right: Will use quality trimming and scan the read from start to end in a window. If the quality in the window is below what is required, the window plus all sequence towards the end is discarded and the read is kept if its still long enough.
+--cut_right: usará el recorte el scan de recorte de calidad desde el inicio al final. 
 
 --thread: Specify how many concurrent threads the process can use.
 
---html and --json: We specify the location of some stat files.
+--html and --json: Especificamos la ubicación de archivo de stats.
 
--i data/anc_R1.fastq.gz -I data/anc_R2.fastq.gz: Specifies the two input read files
+-i data/anc_R1.fastq.gz -I data/anc_R2.fastq.gz: Especifica los dos archivos de entrada.
 
--o trimmed/anc_R1.fastq.gz -O trimmed/anc_R2.fastq.gz: Specifies the two desired output read files
+-o trimmed/anc_R1.fastq.gz -O trimmed/anc_R2.fastq.gz: SpEspecifica los dos archivos de salida. 
 
 
 ## fastqc
